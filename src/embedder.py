@@ -1,18 +1,18 @@
 import os
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_community.vectorstores import FAISS
+from langchain_chroma import Chroma
 from loaders import load_and_split_docs
 
-VECTORSTORE_PATH = "vectorstore/faiss_index"
+VECTORSTORE_PATH = "vectorstore/index"
 
 def build_vectorstore():
     docs = load_and_split_docs()
-    embeddings = HuggingFaceEmbeddings()
-    vectorstore = FAISS.from_documents(docs, embeddings)
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    vectorstore = Chroma.from_documents(docs, embeddings)
     os.makedirs("vectorstore", exist_ok=True)
     vectorstore.save_local(VECTORSTORE_PATH)
     return vectorstore
 
 def load_vectorstore():
-    embeddings = HuggingFaceEmbeddings()
-    return FAISS.load_local(VECTORSTORE_PATH, embeddings, allow_dangerous_deserialization=True)
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    return Chroma.load_local(VECTORSTORE_PATH, embeddings, allow_dangerous_deserialization=True)

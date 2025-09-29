@@ -10,7 +10,7 @@ def load_and_split_docs(data_path: str = "data/publications"):
     # Split docs into chunks
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,
-        chunk_overlap=200,
+        chunk_overlap=100,
         length_function=len,
     )
     split_docs = splitter.split_documents(docs)
