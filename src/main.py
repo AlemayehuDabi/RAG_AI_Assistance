@@ -2,15 +2,18 @@ from rag_pipeline import create_rag_pipeline
 
 def run_cli():
     print("📚 RAG Assistant (type 'exit' to quit)\n")
+    
     qa = create_rag_pipeline()
+    
     while True:
         query = input(">> You: ")
         if query.lower() in ["exit", "quit"]:
             print("👋 Goodbye!")
             break
 
-        result = qa(query)
-        answer = result["result"]
+        result = qa.invoke({"question": query})
+        answer = result["answer"]
+
         sources = result.get("source_documents", [])
 
         print("\n🤖 Assistant:", answer)

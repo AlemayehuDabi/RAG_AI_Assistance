@@ -1,4 +1,4 @@
-from langchain.chains import RetrievalQA
+from langchain.chains import ConversationalRetrievalChain
 from retriever import get_retriever
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -6,6 +6,7 @@ import os
 import yaml
 from langchain_core.prompts import SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain.prompts import ChatPromptTemplate
+from langchain.memory import ConversationSummaryMemory
 
 load_dotenv()
 
@@ -33,14 +34,18 @@ def create_rag_pipeline():
         
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash",
         temperature=0.5)
-    qa_chain = RetrievalQA.from_chain_type(
+    
+    memory = ConversationSummaryMemory(llm=llm, memory_key='chat_history',output_key="answer", return_messages=True)
+    
+    qa_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
         retriever=retriever,
+        memory=memory,
         return_source_documents=True,
-        chain_type="stuff",  # simplest combination method
-        chain_type_kwargs={
-            "prompt": chat_prompt
-        }
+        combine_docs_chain_kwargs={"prompt": chat_prompt}
     )
     
     return qa_chain
+
+# this only works while the terminal is running(meaning in the ram), if the terminal stoped or closed it will not work,
+# for that we have to persist the conversation data inside real db(sql, no-sql) or inside the project in json format!
