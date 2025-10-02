@@ -37,3 +37,18 @@ def save_memory(memory):
     }
     with open(MEMORY_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+
+# Print conversation history to terminal.
+def display_memory(memory):
+    if not memory.chat_memory.messages:
+        print("💡 No previous conversation history.")
+    else:
+        print("\n📝 Previous Conversation History:")
+        for msg in memory.chat_memory.messages:
+            role = msg.type.capitalize()
+            if role == "Human":
+                print(f">> You: {msg.content}")
+            else:
+                print(f"🤖 Assistant: {msg.content}")
+        print("-" * 50)
+    

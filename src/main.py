@@ -1,10 +1,12 @@
 from rag_pipeline import create_rag_pipeline
-from save_load_conversation import save_memory
+from save_load_conversation import save_memory, display_memory
 
 def run_cli():
     print("📚 RAG Assistant (type 'exit' to quit)\n")
     
+    
     qa = create_rag_pipeline()
+    display_memory(qa.memory)
     
     while True:
         query = input(">> You: ")
