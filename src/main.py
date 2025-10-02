@@ -1,4 +1,5 @@
 from rag_pipeline import create_rag_pipeline
+from save_load_conversation import save_memory
 
 def run_cli():
     print("📚 RAG Assistant (type 'exit' to quit)\n")
@@ -9,6 +10,7 @@ def run_cli():
         query = input(">> You: ")
         if query.lower() in ["exit", "quit"]:
             print("👋 Goodbye!")
+            save_memory(qa.memory)
             break
 
         result = qa.invoke({"question": query})

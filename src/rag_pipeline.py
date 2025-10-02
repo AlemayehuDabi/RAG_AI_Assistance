@@ -6,7 +6,7 @@ import os
 import yaml
 from langchain_core.prompts import SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain.prompts import ChatPromptTemplate
-from langchain.memory import ConversationSummaryMemory
+from save_load_conversation import load_memory
 
 load_dotenv()
 
@@ -35,7 +35,7 @@ def create_rag_pipeline():
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash",
         temperature=0.5)
     
-    memory = ConversationSummaryMemory(llm=llm, memory_key='chat_history',output_key="answer", return_messages=True)
+    memory = load_memory(llm)
     
     qa_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,

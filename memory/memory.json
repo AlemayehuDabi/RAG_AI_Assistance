@@ -1,0 +1,85 @@
+{
+  "messages": [
+    {
+      "type": "human",
+      "data": {
+        "content": "what is ai",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null,
+        "example": false
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "Artificial Intelligence (AI) is a branch of computer science focused on creating machines that can exhibit intelligent behavior. It involves techniques that allow computers to simulate human-like cognitive processes, such as:\n\n*   Learning\n*   Reasoning\n*   Problem-solving\n\nAI is widely integrated into modern life, powering technologies like recommendation systems, medical diagnostics, autonomous vehicles, and conversational assistants [Artificial Intelligence].",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": null,
+        "example": false,
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    },
+    {
+      "type": "human",
+      "data": {
+        "content": "what is nlp?",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null,
+        "example": false
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "Natural Language Processing (NLP) is a subfield of artificial intelligence and computational linguistics. It focuses on enabling computers to:\n\n*   Understand human language.\n*   Interpret human language.\n*   Generate human language.\n\nNLP integrates techniques from computer science, linguistics, and machine learning to process both textual and spoken data [Natural Language Processing].",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": null,
+        "example": false,
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    },
+    {
+      "type": "human",
+      "data": {
+        "content": "what is the use",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": null,
+        "example": false
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "Natural Language Processing (NLP) is used for:\n\n*   Enabling computers to understand, interpret, and generate human language [Natural Language Processing].\n*   **Morphological Analysis**: Breaking down words into roots and affixes [Core Tasks].\n*   **Part-of-Speech Tagging**: Assigning grammatical categories to words [Core Tasks].\n*   **Named Entity Recognition (NER)**: Identifying people, organizations, and places in text [Core Tasks].\n*   **Sentiment Analysis**: Determining attitudes expressed in text (positive, negative, neutral) [Core Tasks].\n*   **Machine Translation**: Converting text between languages [Core Tasks].\n*   **Question Answering**: Extracting answers to natural language questions [Core Tasks].\n*   **Summarization**: Producing concise versions of long documents [Core Tasks].",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": null,
+        "example": false,
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    }
+  ]
+}
