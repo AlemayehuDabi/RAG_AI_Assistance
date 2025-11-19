@@ -2,7 +2,7 @@
 # from tokenize import String
 
 from pydantic import BaseModel
-from rag_pipeline import create_rag_pipeline
+from src.rag_pipeline import create_rag_pipeline
 # from save_load_conversation import save_memory, display_memory
 from fastapi import FastAPI
 

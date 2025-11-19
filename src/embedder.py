@@ -1,7 +1,7 @@
 import os
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
-from loaders import load_and_split_docs
+from src.loaders import load_and_split_docs
 
 VECTORSTORE_PATH = "vectorstore/index"
 

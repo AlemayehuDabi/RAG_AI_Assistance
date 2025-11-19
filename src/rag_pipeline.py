@@ -1,12 +1,12 @@
 from langchain.chains import ConversationalRetrievalChain
-from retriever import get_retriever
+from src.retriever import get_retriever
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 import yaml
 from langchain_core.prompts import SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain.prompts import ChatPromptTemplate
-from save_load_conversation import load_memory
+from src.save_load_conversation import load_memory
 
 load_dotenv()
 

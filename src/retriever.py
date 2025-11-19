@@ -1,4 +1,4 @@
-from embedder import build_vectorstore, load_vectorstore, VECTORSTORE_PATH
+from src.embedder import build_vectorstore, load_vectorstore, VECTORSTORE_PATH
 import os
 
 def get_retriever():
